@@ -1,0 +1,4 @@
+rofi.theme: nord
+rofi.font: Jetbarains Mono 12
+rofi.auto-select: false
+rofi.hide-scrollbar: true

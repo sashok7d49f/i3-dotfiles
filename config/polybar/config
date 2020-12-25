@@ -1,0 +1,173 @@
+[settings]
+pseudo-transparency = true
+
+[colors]
+; Solarized ========
+background = #2E3440
+foreground = #ECEFF4
+secondary = #434C5E
+alert = #88C0D0
+
+; Nord =============
+;background = #2E3440
+;foreground = #ECEFF4
+;secondary = #434C5E
+;alert = #88C0D0
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bar/i3bar]
+width = 100%
+height = 24
+
+fixed-center = true
+wm-restack = i3
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3 
+line-color = #000000
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Iosevka Nerd Font:style=Medium:size=9;4
+font-1 = FontAwesome5Free:style=Solid:size=8;3
+font-2 = Weather Icons:size=8;3
+
+modules-left =  i3 title 
+modules-right = keyboard pulseaudio backlight wifi-signal date time
+tray-position = right
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[module/i3]
+type = internal/i3
+format = <label-state><label-mode>
+index-sort = false
+wrapping-scroll = false
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.alert}
+
+label-focused = %icon%
+label-focused-background =  ${colors.secondary}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 1
+label-focused-underline = ${colors.alert}
+
+label-unfocused = %icon%
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-padding = 1
+
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-foreground = ${colors.foreground}
+label-urgent-padding = 1
+label-urgent-underline = ${colors.alert}
+
+label-visible = %icon%
+label-visible-background = ${colors.background}
+label-visible-foreground = ${colors.foreground}
+label-visible-padding = 1
+label-visible-underline = ${colors.background}
+
+ws-icon-0 = "1;1 "
+ws-icon-1 = "2;2 "
+ws-icon-2 = "3;3 "
+ws-icon-3 = "4;4 "
+ws-icon-4 = "5;5 "
+ws-icon-5 = "6;6 "
+ws-icon-6 = "7;7 "
+ws-icon-7 = "8;8 "
+ws-icon-8 = "9;9 "
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; INCLUDE MODULES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[module/backlight]
+type = internal/xbacklight
+format = <ramp> <label>
+label = %percentage%%
+ramp-0 = 
+
+
+[module/wifi-name]
+type = internal/network
+interface = wlp3s0
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+format-disconnected =   No sig
+ramp-signal-0 = 
+interval = 3.0
+
+
+[module/wifi-signal]
+type = custom/script
+label =  %output:%%
+exec = ~/.config/polybar/scripts/wifi-signal.sh
+interval = 3.0
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume> 
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+label-muted = 
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+
+
+[module/weather]
+type = custom/script
+exec = python3 ~/.config/polybar/scripts/weather.py
+interval = 60
+label-font = 1
+
+
+[module/updates-pacman]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates-pacman-aur.sh
+interval = 60
+
+
+[module/keyboard]
+type = internal/xkeyboard
+label-NAME-maxlen = 10
+format-prefix = ""
+label-layout =  %layout%
+
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+blacklist-2= caps lock
+
+
+[module/sp2]
+type = custom/text
+content = "┇"
+
+
+[module/date]
+type = internal/date
+interval = 600
+date = %b %e
+label =  %date%
+
+
+[module/time]
+type = internal/date
+interval = 0
+time = %H:%M
+label =  %time%
+
+
+[module/title]
+type = internal/xwindow
+label = %title%
+format-padding = 4
+label-empty =
+label-maxlen = 50
