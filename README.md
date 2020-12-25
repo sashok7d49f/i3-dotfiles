@@ -1,8 +1,3 @@
-## Special thanks for:
-__https://github.com/Smirnov-O__
-__ __
-__https://github.com/addy-dclxvi__
-
 # Dotfiles
 walpappers(nord): [Github] __https://github.com/tamaldearroz/nord-wallpapers __
 
