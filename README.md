@@ -1,5 +1,6 @@
 # Dotfiles
-walpappers(nord): [Github] __https://github.com/tamaldearroz/nord-wallpapers __
+walpappers(nord): [Github] __https://github.com/tamaldearroz/nord-wallpapers__
+nord gtk theme: [Github] __https://github.com/EliverLara/Nordic__
 
 **Preparing for installation:**
 
@@ -30,7 +31,7 @@ make install
 | `htop`                                                                   | System motitor    |
 | `yay`                                                                    | AUR helper        |
 | `zsh`, `bash`                                                            | Shell             |
-| `ttf-font-awesome`, `ttf-jetbrains-mono`, `ttf-weather-icons` `ttf-hack` | Font              |
+| `ttf-font-awesome`, `ttf-jetbrains-mono`, `ttf-weather-icons`            | Font              |
 | `nord-gtk-theme`                                                         | GTK theme         |
 | `papirus-icon-theme`                                                     | Icon theme        |
 | `scrot`                                                                  | Screenshot tool   |
