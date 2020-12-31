@@ -6,7 +6,7 @@ walpappers(nord): [Github] __https://github.com/tamaldearroz/nord-wallpapers __
 ~~~bash
 sudo pacman -S i3-gaps polybar dunst rofi compton feh hsetroot\
 alacritty ranger pcmanfm htop bash zsh git vim neofetch scrot clipboard yay bash zsh python-tldextract chromium \
-ttf-font-awesome ttf-jetbrains-mono ttf-hack
+ttf-font-awesome ttf-jetbrains-mono
 yay -S ttf-weather-icons
 ~~~
 
