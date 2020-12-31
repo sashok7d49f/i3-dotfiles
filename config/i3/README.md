@@ -26,23 +26,23 @@ hsetroot -center ~/wp.jpg
 
 | Shourtcut                         | Command                                                                                                  |
 | -----------------------           | ------                                                                                                   |
-| `alt` + `F4`                        | Kill focus window                                                                                        |
-| `mod` + `shift` + `r`               | Restart i3                                                                                               |
-| `mod` + `space`                     | Enable/disable floating mode                                                                             |
-| `mod` + `f`                         | Enable/disable fullscreen mode                                                                           |
-| `mod` + `h`/`v`                       | Horisontal/Vertical split                                                                                |
-| `mod` + `w`/`e`                       | Container mode Tabbed/Split                                                                              |
-| `mod` + `shift` + `-`               | Move focus window to scratchpad                                                                          |
-| `mod` + `-`                         | Show window from scratchpad                                                                              |
-| `mod` + `d`                         | Run program launcher (Rofi)                                                                              |
-| `mod` + `enter`                     | Run alacritty                                                                                            |
-| `mod` + `shift` + `c`              | Run chromium                                                                                             |
-| `Print Screen`                      | Screenshot                                                                                               |
-| `mod` + `Arrow`                     | Change focus window                                                                                      |
-| `mod` + `shift` + `Arrow`           | Move focus window                                                                                        |
-| `mod` + `[1-9]`                     | Change workspace                                                                                         |
-| `mod` + `shift` + `[1-9]`           | Send focus window to workspace                                                                           |
-| `mod` + `r`                         | Enable/disable `resize` mode                                                                             |
+| `super` + `q`                     | Kill focus window                                                                                        |
+| `mod` + `shift` + `r`             | Restart i3                                                                                               |
+| `mod` + `space`                   | Enable/disable floating mode                                                                             |
+| `mod` + `f`                       | Enable/disable fullscreen mode                                                                           |
+| `alt` + `h`/`v`                   | Horisontal/Vertical split                                                                                |
+| `mod` + `w`/`e`                   | Container mode Tabbed/Split                                                                              |
+| `mod` + `shift` + `-`             | Move focus window to scratchpad                                                                          |
+| `mod` + `-`                       | Show window from scratchpad                                                                              |
+| `mod` + `d`                       | Run program launcher (Rofi)                                                                              |
+| `mod` + `enter`                   | Run alacritty                                                                                            |
+| `mod` + `shift` + `c`             | Run chromium                                                                                             |
+| `alt` + `p`                       | Screenshot                                                                                               |
+| `mod` + `h/j/k/l`                 | Change focus window                                                                                      |
+| `mod` + `shift` + `h/j/k/l`       | Move focus window                                                                                        |
+| `mod` + `[1-9]`                   | Change workspace                                                                                         |
+| `mod` + `shift` + `[1-9]`         | Send focus window to workspace                                                                           |
+| `mod` + `r`                       | Enable/disable `resize` mode                                                                             |
 
 ### Rules
 ---------
@@ -52,7 +52,7 @@ Open `pcmanfm`, `zoom` on `3` workspace
 
 Open `libreoffice` on `4` workspace
 
-Open `discord`, `telegram` on `6` workspace
+Open `discord` on `6` workspace
 
 Open `keepassxc` on `7` workspace
 
