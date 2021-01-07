@@ -2,17 +2,11 @@
 pseudo-transparency = true
 
 [colors]
-; Solarized ========
+; Nord ========
 background = #2E3440
 foreground = #ECEFF4
 secondary = #434C5E
 alert = #88C0D0
-
-; Nord =============
-;background = #2E3440
-;foreground = #ECEFF4
-;secondary = #434C5E
-;alert = #88C0D0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [bar/i3bar]
@@ -122,19 +116,6 @@ ramp-volume-3 = 
 ramp-volume-4 = 
 
 
-[module/weather]
-type = custom/script
-exec = python3 ~/.config/polybar/scripts/weather.py
-interval = 60
-label-font = 1
-
-
-[module/updates-pacman]
-type = custom/script
-exec = ~/.config/polybar/scripts/updates-pacman-aur.sh
-interval = 60
-
-
 [module/keyboard]
 type = internal/xkeyboard
 label-NAME-maxlen = 10
@@ -143,27 +124,16 @@ label-layout =  %layout%
 
 blacklist-0 = num lock
 blacklist-1 = scroll lock
-blacklist-2= caps lock
-
-
-[module/sp2]
-type = custom/text
-content = "┇"
+blacklist-2 = caps lock
 
 
 [module/date]
 type = internal/date
-interval = 600
-date = %b %e
-label =  %date%
-
-
-[module/time]
-type = internal/date
-interval = 0
-time = %H:%M
-label =  %time%
-
+interval = 1
+time =  %d/%m/%Y |  %H:%M:%S
+format-prefix-foreground = ${colors.foreground-alt}
+label = %time%
+format = %{A1:zenity --calendar:} <label> %{A}
 
 [module/title]
 type = internal/xwindow
