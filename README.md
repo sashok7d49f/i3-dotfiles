@@ -14,7 +14,6 @@ yay -S ttf-weather-icons
 
 ~~~bash
 git clone https://github.com/sashok7d49f/dotfiles
-make install
 ~~~
 
 ### Packages
