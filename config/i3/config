@@ -1,0 +1,154 @@
+# set modifier
+set $super Mod4
+set $alt Mod1
+
+# set font
+font pango: JetBrains Mono 10
+
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
+focus_follows_mouse no
+
+#gaps
+smart_gaps on
+gaps inner 2
+gaps outer 3
+smart_borders on
+
+#autostart
+exec --no-startup-id hsetroot -center /home/sasha/wp.png
+exec_always --no-startup-id $HOME/.i3/launch.sh
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+exec --no-startup-id xsettingsd &
+exec --no-startup-id setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle,grp_led:scroll" 
+exec --no-startup-id compton -b
+exec --no-startup-id nm-applet
+
+# start rofi (a program launcher)
+bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'
+
+# common apps keybinds
+bindsym Print exec scrot 'Screenshot_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
+bindsym $super+Ctrl+l exec --no-startup-id blurlock
+bindsym $super+Shift+c exec chromium
+bindsym $super+Shift+f exec pcmanfm
+bindsym $super+Ctrl+Return exec terminator
+bindsym $super+Return exec alacritty
+
+# kill focused window
+bindsym $super+q kill
+
+# change focus
+bindsym $super+h focus left
+bindsym $super+k focus down
+bindsym $super+j focus up
+bindsym $super+l focus right
+
+# move focused window
+bindsym $super+Shift+h move left
+bindsym $super+Shift+k move down
+bindsym $super+Shift+j move up
+bindsym $super+Shift+l move right
+
+# split orientation
+bindsym $alt+h split h;exec notify-send 'tile horizontally'
+bindsym $alt+v split v;exec notify-send 'tile vertically'
+
+# enter fullscreen mode for the focused container
+bindsym $super+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $alt+w layout tabbed
+bindsym $alt+e layout toggle splite
+
+# toggle tiling / floating
+bindsym $super+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $super+Shift+space focus mode_toggle
+
+#scratchpad
+bindsym $super+Shift+minus move scratchpad
+bindsym $super+minus scratchpad show
+
+# switch to workspace
+bindsym $alt+Control+Right workspace next
+bindsym $alt+Control+Left workspace prev
+bindsym $super+1 workspace 1
+bindsym $super+2 workspace 2
+bindsym $super+3 workspace 3
+bindsym $super+4 workspace 4
+bindsym $super+5 workspace 5
+bindsym $super+6 workspace 6
+bindsym $super+7 workspace 7
+bindsym $super+8 workspace 8
+bindsym $super+9 workspace 9
+bindsym $super+0 workspace 10
+
+# move focused container to workspace
+bindsym $super+Shift+1 move container to workspace 1
+bindsym $super+Shift+2 move container to workspace 2
+bindsym $super+Shift+3 move container to workspace 3
+bindsym $super+Shift+4 move container to workspace 4
+bindsym $super+Shift+5 move container to workspace 5
+bindsym $super+Shift+6 move container to workspace 6
+bindsym $super+Shift+7 move container to workspace 7
+bindsym $super+Shift+8 move container to workspace 8
+bindsym $super+Shift+9 move container to workspace 9
+bindsym $super+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $super+Ctrl+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $super+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $super+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Set shut down, restart and locking features
+bindsym $super+Ctrl+q mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym j resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+        bindsym Escape mode "default"
+}
+bindsym $super+r mode "resize"
+
+# window rules, you can find the window class using xprop
+for_window [class=".*"] border pixel 4
+assign [class=Firefox|Chromium] 2
+assign [class=PCManFM|zoom] 3
+assign [class=libreoffice*] 4
+assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
+assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
+for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
+for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity|PCManFM] focus
+for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
+
+# colour of border, background, text, indicator, and child_border
+client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
+client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.background           #2f343f
