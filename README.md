@@ -6,14 +6,14 @@ nord gtk theme: [Github] __https://github.com/EliverLara/Nordic__
 **Preparing for installation:**
 
 ~~~bash
-sudo pacman -S i3-gaps polybar dunst rofi compton feh hsetroot 
+sudo pacman -S i3-gaps polybar dunst rofi feh hsetroot 
 alacritty ranger pcmanfm lxappearance htop bash zsh git vim neofetch scrot yay bash zsh python-tldextract chromium \
 ttf-font-awesome ttf-jetbrains-mono
 yay -S ttf-weather-icons
 ~~~
 
 ~~~bash
-git clone https://github.com/sashok7d49f/dotfiles
+git clone https://github.com/sashok7d49f/i3-dotfiles
 ~~~
 
 ### Packages
